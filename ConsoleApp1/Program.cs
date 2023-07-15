@@ -44,7 +44,7 @@ List<Classученик> придумать_учеников(int сколько_�
 }
 
 
-List<Classученик> list = придумать_учеников(10);
+Classкабинет list = new Classкабинет(придумать_учеников(10));
 
 while (true)
 {
@@ -52,20 +52,20 @@ while (true)
     if (y == 1)
     {
         Console.WriteLine("Впишите нового ученика");
-        list.Add(new Classученик(Console.ReadLine(), new List<int> { }, 0));
+        list.ученики.Add(new Classученик(Console.ReadLine(), new List<int> { }, 0));
     }
     else if (y == 2)
     {
         Console.WriteLine("Удалить ученика");
-        list.RemoveAt(int.Parse(Console.ReadLine()));
+        list.ученики.RemoveAt(int.Parse(Console.ReadLine()));
     }
     else if (y == 3)
     {
         Console.WriteLine("Измените имя ученика");
         int k = int.Parse(Console.ReadLine());
-        if (k >= list.Count || k < 0)
+        if (k >= list.ученики.Count || k < 0)
             continue;
-        list[k].имя = Console.ReadLine();
+        list.ученики[k].имя = Console.ReadLine();
     }
     else if (y == 4)
     {
@@ -74,24 +74,24 @@ while (true)
     else if (y == 5)
     {
         int m = 0;
-        for (int i = 0; i < list.Count; i++)
+        for (int i = 0; i < list.ученики.Count; i++)
         {
             if (i == 5)
             {
                 m = m + 1;
             }
         }
-        float r = ((float)m / (float)list.Count) * 100f;
+        float r = ((float)m / (float)list.ученики.Count) * 100f;
         Console.WriteLine(r);
     }
     else if (y == 6)
     {
         int m = 0;
-        for (int i = 0; i < list.Count; i++)
+        for (int i = 0; i < list.ученики.Count; i++)
         {
-            m = m + list[i].рост;
+            m = m + list.ученики[i].рост;
         }
-        int c = m / list.Count;
+        int c = m / list.ученики.Count;
         Console.WriteLine(c);
     }
     else if (y == 7)
@@ -100,9 +100,9 @@ while (true)
         int c = 0;
         for (int q = 130; q <= 200; q = q + 10) {
             int h = 0;
-            for (int i = 0; i < list.Count; i++)
+            for (int i = 0; i < list.ученики.Count; i++)
             {
-                if (list[i].рост == q)
+                if (list.ученики[i].рост == q)
                 {
                     h = h + 1;
                 }
@@ -113,56 +113,56 @@ while (true)
                 c = q;
             }
         }
-        float r = ((float)количествоучеников / (float)list.Count) * 100f;
+        float r = ((float)количествоучеников / (float)list.ученики.Count) * 100f;
         Console.WriteLine(r);
         Console.WriteLine(c);
         Console.WriteLine(количествоучеников);
     }
     else if (y == 8)
     {
-        for (int i = 0;i < list.Count; i++)
+        for (int i = 0;i < list.ученики.Count; i++)
         {
-            Console.WriteLine(list[i].имя);
-            for (int o = 0; o < list[i].оценка.Count;o++)
+            Console.WriteLine(list.ученики[i].имя);
+            for (int o = 0; o < list.ученики[i].оценка.Count;o++)
             {
-                Console.WriteLine(list[i].оценка[o]);
+                Console.WriteLine(list.ученики[i].оценка[o]);
             }
         }
     }
     else if (y == 9)
     {
-        for (int q = 0;q < list.Count; q++)
+        for (int q = 0;q < list.ученики.Count; q++)
         {
-            Console.WriteLine(list[q].имя);
-            Console.WriteLine(просчёт_среднего_балла(list[q].оценка));
+            Console.WriteLine(list.ученики[q].имя);
+            Console.WriteLine(просчёт_среднего_балла(list.ученики[q].оценка));
         }
 
     }
     else if (y == 10)
     {
         List<int> массив_всех_оценок = new List<int> { };
-        for (int e  = 0;e < list.Count; e++)
+        for (int e  = 0;e < list.ученики.Count; e++)
         {
-            массив_всех_оценок.AddRange(list[e].оценка);
+            массив_всех_оценок.AddRange(list.ученики[e].оценка);
         }
         Console.WriteLine(просчёт_среднего_балла(массив_всех_оценок));
     }
 }
-foreach (var item in list)
+foreach (var item in list.ученики)
 {
     Console.WriteLine(item);
 }
-for (int i = 0; i < list.Count; i++)
+for (int i = 0; i < list.ученики.Count; i++)
 {
 
 }
     while (true)
 {
     int k = int.Parse(Console.ReadLine());
-    if (k >= list.Count || k < 0)
+    if (k >= list.ученики.Count || k < 0)
         break;
     string h = Console.ReadLine();
-    Console.WriteLine(list[k].имя);
+    Console.WriteLine(list.ученики[k].имя);
     if (h == "оценка")
     {
         int l = int.Parse(Console.ReadLine());
@@ -181,9 +181,9 @@ for (int i = 0; i < list.Count; i++)
     }
 
 }
-for (int i = 0; i < list.Count; i++)
+for (int i = 0; i < list.ученики.Count; i++)
 {
-    Console.WriteLine(list[i].имя);
-    Console.WriteLine(list[i].рост);
-    Console.WriteLine(list[i].оценка);
+    Console.WriteLine(list.ученики[i].имя);
+    Console.WriteLine(list.ученики[i].рост);
+    Console.WriteLine(list.ученики[i].оценка);
 }
