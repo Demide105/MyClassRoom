@@ -42,13 +42,34 @@ namespace ConsoleApp1
         public Classученик? ученик1 { get; set; }
         public Classученик? ученик2 { get; set; }
     }
+    internal class Classдоска
+    {
+        public string текст { get; set; }
+        public string посмотреть_на_доску() => текст;
+        public void написать_на_доске(string w) => текст = w;
+        public void очистить_доску() => текст = "";
+    }
     internal class Classкабинет
     {
+        public Classдоска доска { get; set; }
         public List<Classученик> ученики { get; set; }
-        public List<Classпарты> парты { get; set; }
-        public Classкабинет(List<Classученик> ученики1)
+        public List<Classпарты> парты { get; set; } = new List<Classпарты> { };
+        public Classкабинет(List<Classученик> ученики1) => ученики = ученики1;
+        public void рассадить_учеников()
         {
-            ученики = ученики1;
+            for (int i = 0;i < ученики.Count; i++)
+            {
+                if (парты.Count != 0 && парты[парты.Count-1].количество_учеников() == 1)
+                {
+                    парты[парты.Count-1].ученик2 = ученики[i];
+                }
+                else
+                {
+                    Classпарты парта = new Classпарты();
+                    парта.ученик1 = ученики[i];
+                    парты.Add(парта);
+                }
+            }
         }
     }
 }
