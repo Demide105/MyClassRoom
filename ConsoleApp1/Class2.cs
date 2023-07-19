@@ -13,15 +13,35 @@ namespace ConsoleApp1
         public List<int> оценка { get; set; }
         public void р()
         {
-            Console.WriteLine(имя);
-            Console.WriteLine(оценка);
-            Console.WriteLine(рост);
+            string oo = "";
+            oo += имя + ", ";
+            foreach (int o in оценка)
+            {
+                oo += o + ", ";
+            }
+            oo += рост + ", ";
+            oo += имя_соседа();
+            Console.WriteLine(oo);
         }
         public Classученик(string имя1,List<int> _оценка , int _рост)
         {
             имя = имя1;
             оценка = _оценка;
             рост = _рост;
+        }
+        public Classпарты? парта { get; set; }
+        public string имя_соседа()
+        {
+            if (парта is null)
+                return "";
+
+            if(парта.количество_учеников() < 2)
+                return "";
+
+            if (this.Equals(парта.ученик1))
+                return парта.ученик2.имя;
+
+            return парта.ученик1.имя;
         }
     }
     internal class Classпарты
@@ -51,7 +71,7 @@ namespace ConsoleApp1
     }
     internal class Classкабинет
     {
-        public Classдоска доска { get; set; }
+        public Classдоска доска { get; set; } = new Classдоска();
         public List<Classученик> ученики { get; set; }
         public List<Classпарты> парты { get; set; } = new List<Classпарты> { };
         public Classкабинет(List<Classученик> ученики1) => ученики = ученики1;
@@ -69,6 +89,7 @@ namespace ConsoleApp1
                     парта.ученик1 = ученики[i];
                     парты.Add(парта);
                 }
+                ученики[i].парта = парты[парты.Count - 1];
             }
         }
     }

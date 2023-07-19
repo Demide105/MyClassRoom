@@ -160,6 +160,25 @@ while (true)
             }
         }
     }
+    else if(y == 12)
+    {
+        list.доска.написать_на_доске(Console.ReadLine());
+    }
+    else if(y == 13)
+    {
+        Console.WriteLine(list.доска.посмотреть_на_доску());
+    }
+    else if (y == 14)
+    {
+        list.доска.очистить_доску();
+    }
+    else if( y == 15)
+    {
+        for (int i = 0;i < list.ученики.Count;i++)
+        {
+            list.ученики[i].р();
+        }
+    }
 }
 foreach (var item in list.ученики)
 {
