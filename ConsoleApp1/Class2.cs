@@ -77,6 +77,7 @@ namespace ConsoleApp1
         public Classкабинет(List<Classученик> ученики1) => ученики = ученики1;
         public void рассадить_учеников()
         {
+            парты.Clear();
             for (int i = 0;i < ученики.Count; i++)
             {
                 if (парты.Count != 0 && парты[парты.Count-1].количество_учеников() == 1)

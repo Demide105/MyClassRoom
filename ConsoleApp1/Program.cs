@@ -45,7 +45,7 @@ List<Classученик> придумать_учеников(int сколько_�
 
 
 Classкабинет list = new Classкабинет(придумать_учеников(10));
-list.рассадить_учеников(); 
+list.рассадить_учеников();
 
 while (true)
 {
@@ -54,11 +54,13 @@ while (true)
     {
         Console.WriteLine("Впишите нового ученика");
         list.ученики.Add(new Classученик(Console.ReadLine(), new List<int> { }, 0));
+        list.рассадить_учеников();
     }
     else if (y == 2)
     {
         Console.WriteLine("Удалить ученика");
         list.ученики.RemoveAt(int.Parse(Console.ReadLine()));
+        list.рассадить_учеников();
     }
     else if (y == 3)
     {
@@ -121,10 +123,10 @@ while (true)
     }
     else if (y == 8)
     {
-        for (int i = 0;i < list.ученики.Count; i++)
+        for (int i = 0; i < list.ученики.Count; i++)
         {
             Console.WriteLine(list.ученики[i].имя);
-            for (int o = 0; o < list.ученики[i].оценка.Count;o++)
+            for (int o = 0; o < list.ученики[i].оценка.Count; o++)
             {
                 Console.WriteLine(list.ученики[i].оценка[o]);
             }
@@ -132,7 +134,7 @@ while (true)
     }
     else if (y == 9)
     {
-        for (int q = 0;q < list.ученики.Count; q++)
+        for (int q = 0; q < list.ученики.Count; q++)
         {
             Console.WriteLine(list.ученики[q].имя);
             Console.WriteLine(просчёт_среднего_балла(list.ученики[q].оценка));
@@ -142,7 +144,7 @@ while (true)
     else if (y == 10)
     {
         List<int> массив_всех_оценок = new List<int> { };
-        for (int e  = 0;e < list.ученики.Count; e++)
+        for (int e = 0; e < list.ученики.Count; e++)
         {
             массив_всех_оценок.AddRange(list.ученики[e].оценка);
         }
@@ -150,7 +152,7 @@ while (true)
     }
     else if (y == 11)
     {
-        for(int i = 0;i < list.парты.Count;i++)
+        for (int i = 0; i < list.парты.Count; i++)
         {
             Console.WriteLine("парта номер " + i);
             Console.WriteLine(list.парты[i].ученик1?.имя);
@@ -160,11 +162,11 @@ while (true)
             }
         }
     }
-    else if(y == 12)
+    else if (y == 12)
     {
         list.доска.написать_на_доске(Console.ReadLine());
     }
-    else if(y == 13)
+    else if (y == 13)
     {
         Console.WriteLine(list.доска.посмотреть_на_доску());
     }
@@ -172,11 +174,22 @@ while (true)
     {
         list.доска.очистить_доску();
     }
-    else if( y == 15)
+    else if (y == 15)
     {
-        for (int i = 0;i < list.ученики.Count;i++)
+        for (int i = 0; i < list.ученики.Count; i++)
         {
             list.ученики[i].р();
+        }
+    }
+    else if (y == 16)
+    {
+        for(int i = 0;i < list.парты.Count; i++)
+        {
+            Console.WriteLine("номер парты " + i);
+            if (list.парты[i].ученик1 is not null)
+                list.парты[i].ученик1.р();
+            if (list.парты[i].ученик2 is not null)
+                list.парты[i].ученик2.р();
         }
     }
 }
