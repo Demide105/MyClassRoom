@@ -57,8 +57,8 @@ while (true)
     Console.WriteLine("6 - Нахождение среднего роста");
     Console.WriteLine("7 - Кол-во учеников с определёным ростом");
     Console.WriteLine("8 - Нахождение всех имён учеников и оценок");
-    Console.WriteLine("9 - Нахождение среднего балла учеников");
-    Console.WriteLine("10 - Нахождение среднего балла ученика");
+    Console.WriteLine("9 - Нахождение среднего балла ученика");
+    Console.WriteLine("10 - Нахождение среднего балла учеников");
     Console.WriteLine("11 - Нахождение имён учеников за партами");
     Console.WriteLine("12 - Написать на доске");
     Console.WriteLine("13 - Посмотреть на доску");
