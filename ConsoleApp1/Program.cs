@@ -49,6 +49,22 @@ list.рассадить_учеников();
 
 while (true)
 {
+    Console.WriteLine("1 - Добавить нового ученика");
+    Console.WriteLine("2 - Удалить ученика");
+    Console.WriteLine("3 - Изменить имя ученика");
+    Console.WriteLine("4 - Выйти с програмы");
+    Console.WriteLine("5 - Нахождение отличника");
+    Console.WriteLine("6 - Нахождение среднего роста");
+    Console.WriteLine("7 - Кол-во учеников с определёным ростом");
+    Console.WriteLine("8 - Нахождение всех имён учеников и оценок");
+    Console.WriteLine("9 - Нахождение среднего балла учеников");
+    Console.WriteLine("10 - Нахождение среднего балла ученика");
+    Console.WriteLine("11 - Нахождение имён учеников за партами");
+    Console.WriteLine("12 - Написать на доске");
+    Console.WriteLine("13 - Посмотреть на доску");
+    Console.WriteLine("14 - Очистить доску");
+    Console.WriteLine("15 - Вывод имён,оценок,роста учеников");
+    Console.WriteLine("16 - Вывод имён,оценок,роста учеников за партами");
     int y = int.Parse(Console.ReadLine());
     if (y == 1)
     {
@@ -79,7 +95,15 @@ while (true)
         int m = 0;
         for (int i = 0; i < list.ученики.Count; i++)
         {
-            if (i == 5)
+            bool Отличник = true;
+            for (int j = 0;j < list.ученики[i].оценка.Count; j++)
+            {
+                if (list.ученики[i].оценка[j] != 5)
+                {
+                    Отличник = false;
+                }
+            }
+            if (Отличник)
             {
                 m = m + 1;
             }
